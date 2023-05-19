@@ -5,6 +5,8 @@ import * as cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 
+const PORT = process.env.PORT || 3000;
+
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
@@ -27,6 +29,6 @@ async function bootstrap() {
 
   app.use(cookieParser());
 
-  await app.listen(3000);
+  await app.listen(PORT);
 }
 bootstrap();
