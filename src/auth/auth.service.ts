@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -10,12 +9,11 @@ export class AuthService {
   constructor(
     private jwtService: JwtService,
     @InjectModel(User.name) private userModel: Model<User>,
-    private config: ConfigService,
   ) {}
 
   async generateJwt(payload: any) {
     return await this.jwtService.signAsync(payload, {
-      secret: this.config.get('JWT_SECRET'),
+      secret: process.env.JWT_SECRET,
       expiresIn: '1y',
     });
   }

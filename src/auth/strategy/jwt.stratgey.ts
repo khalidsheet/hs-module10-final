@@ -1,5 +1,4 @@
-import { Inject, UnauthorizedException } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { PassportStrategy } from '@nestjs/passport';
 import { Model } from 'mongoose';
@@ -12,10 +11,7 @@ export interface JwtPayload {
 }
 
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
-  constructor(
-    @Inject(ConfigService) private config: ConfigService,
-    @InjectModel(User.name) private userModel: Model<User>,
-  ) {
+  constructor(@InjectModel(User.name) private userModel: Model<User>) {
     const jwtFromCookie = (req: any) => {
       let token = null;
       if (req && req.cookies) {
@@ -27,7 +23,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     super({
       jwtFromRequest: jwtFromCookie,
       ignoreExpiration: false,
-      secretOrKey: config.get('JWT_SECRET'),
+      secretOrKey: process.env.JWT_SECRET,
     });
   }
 
