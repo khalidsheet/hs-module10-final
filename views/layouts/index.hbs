@@ -1,0 +1,47 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Document</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap'
+      rel='stylesheet'
+    />
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css'
+    />
+    <link rel='stylesheet' href='/css/index.css' />
+
+  </head>
+  <body>
+    {{#if user}}
+      <header>
+        <div class='common__header'>
+          <img src='{{user.avatar}}' alt='' />
+          <div class='info'>
+            <h1>{{user.name}}</h1>
+            <a href='/auth/signout'>Sign out</a>
+          </div>
+        </div>
+      </header>
+    {{/if}}
+
+    {{#if user}}
+      <div class='container'>
+        {{{body}}}
+      </div>
+    {{else}}
+      {{{body}}}
+    {{/if}}
+
+    <script
+      src='https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js'
+    ></script>
+    <script src='https://cdn.jsdelivr.net/npm/marked/marked.min.js'></script>
+    <script src='/javascript/new.js' defer></script>
+  </body>
+</html>

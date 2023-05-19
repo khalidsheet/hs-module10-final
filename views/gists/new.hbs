@@ -1,0 +1,22 @@
+<div class='header'>
+  <h1>
+    Create a new gist
+  </h1>
+  <a href='/gist' class='back'>Back</a>
+</div>
+<form action='/gist/new' method='POST'>
+  <div class='form-control'>
+    <label for='description'>Title</label>
+    <input type='text' name='description' id='description' />
+  </div>
+  <div class='form-control'>
+    <label for='isPublic'>Public</label>
+    <input type='checkbox' name='isPrivate' id='isPublic' />
+  </div>
+  <div class='form-control'>
+    <label for='code'>Content</label>
+    <textarea name='code' id='code' rows='16'></textarea>
+
+  </div>
+  <button type='submit' class='btn btn-primary'>Create Gist</button>
+</form>

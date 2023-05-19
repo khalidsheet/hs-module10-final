@@ -1,0 +1,14 @@
+{{#if error}}
+  <p class='error'>{{error}}</p>
+{{else}}
+  <h1>{{gist.description}}</h1>
+  {{#if gist.isPrivate}}
+    <p>This is a private gist</p>
+  {{else}}
+    <p>This is a public gist</p>
+  {{/if}}
+
+  <div id='renderCode'>
+    {{gist.code}}
+  </div>
+{{/if}}

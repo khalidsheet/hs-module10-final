@@ -1,0 +1,24 @@
+<div class='header'>
+  <h1>Gists</h1>
+  <a href='/gist/new' class='btn btn-primary'>New Gist</a>
+</div>
+<ul class='gist-list'>
+  {{#each gists}}
+    <li>
+      <a href='/gist/{{this._id}}'>
+        {{#if this.isPrivate}}
+          <span class='badge private'>Private</span>
+        {{else}}
+          <span class='badge public'>Public</span>
+        {{/if}}
+        <span class='title'>{{this.description}}
+        </span>
+      </a>
+    </li>
+  {{else}}
+    <div class='empty'>
+      <h3>No Gists Found</h3>
+      <p>Click the button above to create a new gist.</p>
+    </div>
+  {{/each}}
+</ul>
