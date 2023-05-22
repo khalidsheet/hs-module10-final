@@ -1,9 +1,9 @@
+import { User } from './../../models/user.model';
 import { UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { PassportStrategy } from '@nestjs/passport';
 import { Model } from 'mongoose';
 import { Strategy, ExtractJwt } from 'passport-jwt';
-import { User } from 'src/models/user.model';
 
 export interface JwtPayload {
   sub: string;
