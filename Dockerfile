@@ -14,3 +14,6 @@ COPY . .
 
 # Build
 RUN npm run build
+
+# Start
+CMD [ "npm", "start" ]
