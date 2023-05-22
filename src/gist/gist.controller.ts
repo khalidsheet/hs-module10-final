@@ -1,3 +1,5 @@
+import { JwtGuard } from './../auth/guards/jwt/jwt.guard';
+import { Gist } from './../models/gist.model';
 import {
   Controller,
   Get,
@@ -10,8 +12,6 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { Request } from 'express';
 import { Model } from 'mongoose';
-import { JwtGuard } from 'src/auth/guards/jwt/jwt.guard';
-import { Gist } from 'src/models/gist.model';
 
 @Controller('gist')
 export class GistController {
