@@ -7,7 +7,7 @@ import { join } from 'path';
 
 const PORT = process.env.PORT || 3000;
 
-async function bootstrap() {
+(async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   app.enableCors();
@@ -30,5 +30,4 @@ async function bootstrap() {
   app.use(cookieParser());
 
   await app.listen(PORT);
-}
-bootstrap();
+})();
