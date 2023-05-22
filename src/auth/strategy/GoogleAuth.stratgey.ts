@@ -3,7 +3,6 @@ import { Strategy } from 'passport-google-oauth2';
 
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
   constructor() {
-    console.log('GoogleStrategy', process.env.GOOGLE_CLIENT_ID);
     super({
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
